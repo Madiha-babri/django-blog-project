@@ -1,5 +1,78 @@
-{% extends "base.html" %}
+Skip to content
+Navigation Menu
+Code-Institute-Solutions
+blog
 
+Type / to search
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Files
+Go to file
+t
+01_getting_set_up
+02_models_part1
+06_views_part1
+07_Rich_text_reload
+08_templates
+09_views_part2
+10_create_about_app
+11_authorisation
+12_views_part_3
+13_collaboration_form
+14_where_to_put_things
+01_storing_images_in_cloudinary
+about
+blog
+migrations
+templates/blog
+index.html
+post_detail.html
+__init__.py
+admin.py
+apps.py
+forms.py
+models.py
+tests.py
+urls.py
+views.py
+codestar
+static
+staticfiles
+templates
+Procfile
+env.py
+manage.py
+requirements.txt
+runtime.txt
+02_storing_user_generated_images
+03_tidy_up
+15_testing
+README.md
+Breadcrumbsblog/14_where_to_put_things/01_storing_images_in_cloudinary/blog/templates/blog
+/index.html
+Latest commit
+NielMc
+NielMc
+DTL template tag syntax fixes
+cd912a2
+ · 
+last year
+History
+Breadcrumbsblog/14_where_to_put_things/01_storing_images_in_cloudinary/blog/templates/blog
+/index.html
+File metadata and controls
+
+Code
+
+Blame
+63 lines (58 loc) · 2.45 KB
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
 
 <!-- index.html content starts here -->
@@ -14,6 +87,12 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                                {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
@@ -54,7 +133,5 @@
 
 <!-- index.html content ends here -->
 {% endblock %}
-
-{% block copyright %}
-    Copyright 2023 Madiha Babri
-{% endblock %}
+{% block copyright %}Copyright 2023 Matt Rudge{% endblock %}
+blog/14_where_to_put_things/01_storing_images_in_cloudinary/blog/templates/blog/index.html at main · Code-Institute-Solutions/blog
