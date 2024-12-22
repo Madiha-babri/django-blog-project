@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-d^h@z12ro1v0)1tpvtta16(wh$7r-!_d*3%=_ol5vdp-yc5u_h
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-madihababri-djangoblogp-qq2dv2d7wty.ws.codeinstitute-ide.net',
-'.herokuapp.com']
+                '.herokuapp.com']
 
 
 # Application definition
